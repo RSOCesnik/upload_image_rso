@@ -4,9 +4,9 @@ RUN mkdir /app
 
 WORKDIR /app
 
-ADD ./api/target/photo-api-1.0.0-SNAPSHOT.jar /app
+ADD ./api/target/image-uploader-api-1.0.0-SNAPSHOT.jar /app
 
 EXPOSE 8081
 
-CMD java -jar photo-api-1.0.0-SNAPSHOT.jar
+CMD java -jar image-uploader-api-1.0.0-SNAPSHOT.jar
 
