@@ -1,25 +1,21 @@
 sudo: required
 dist: bionic
 language: java
-
 services:
-  - docker
-
+- docker
 jdk:
-  - openjdk11
-
+- openjdk11
 env:
   global:
-    - DOCKER_IMAGE=bcesnik/rso-image-uploader:1.0.0-SNAPSHOT-$TRAVIS_JOB_NUMBER
-
+  - DOCKER_IMAGE=bcesnik/rso-image-uploader:1.0.0-SNAPSHOT-$TRAVIS_JOB_NUMBER
+  - secure: cYCm/PeFETqJQU57Hu8YJSJXZ1ScMMf9vTpc+9IdJuIql2mLH7VWoEt73j2bWOe1+1ViyKnavGlCiFI6q1AepmZA/zVoPHOR6hIJvxp6BupAGf2LZymairWnllIRoYbj6ceSqRAIolEJ6m0Xat4EQfuhCvcPJgKbngCp5W9iDcuyUyarOLZP8YJnaPLlLnztokKeWtoZOq/pXJ94scM+jnfQusJW//aVzDJL8YpaDDNXxYbH9fQ0CBjWfpabF+RwTVWWgdHmVT1ibAZlJAhuKjzP49C9e5KxzJXjxC4DMjr2z1k6Qj0CD8l+okdWHDIFomwm2lJaHoWjf4LFhdN9hA0BqHjjdCpyExuGcv5iZIqm3sAMs16EjWH3JzmMGBD8Zy7eRYOXrWSYqBjDwjndWG4A4aytTMhDsDiGILndUQa1/+0SM9TyYcKyANQtdBiMFgmZfOIcMgXaHgaCxLsKKUZtNMrtzPRtzXMj5rTozFcjvlYJbYGAL+DfIprm2QOtUcx2bIPFIh2tt7sXHzuQP0lReT7+BREnR6jzx8N1V2VZIOmNSrjxgFgQfHdQuwrKc3YR1F2XZ/lOQVR2ec0/IAQXyAhv/xytQjEcYkun5MXrBm29433znuT+T37gZaZCyIQ/fjQ0iHwAWqeGYm2E25ihdiADd8fzcd4QK8INI2E=
+  - secure: fRzo1PlwvwE36VsXqyMzylaXtTMqxv4BedO3i1GxqN3rMqcG9l8OU0HjQpECWs4gENmTXKPtmjgIu3V9hja+zQNthnK5hy5JaQlRIulpS65E577gS01YmpzVmRx6Rxe0AWOllzMmISN8lSXvtVGPAvuZyI2anCNR4/y5pcjzSV6cEHK7T/3yxFE+XCMiUR7nbfnBYl6DER9ITvTQingutPDymUraXKgA5OMTeHx+J0zgORMlzpLqhIYSgJGV4fztEr7+aKyeqZreLk7oZC45HWLceEq7DtDpiUpn67LAA5oSDgHg/I9i9Ew8aHOxCOXAPmxzlfUkQeZmgB3qDHSzTUt7LAvzQsxjRJV7HTqbxRJLCqAcGr4AuBWhSx9IHf91ZxJ62FltO5lybFuCVbcMlyL3boleLPsPSOJA7mdp5g4yei5g3p6mDM4vvtFkAVJb+uFUC0SyD1kWcRaFSMhlwPNxiZRO5vsgYzQ5lBnt5FuPnQqZ/YU17BCLcW1wSbgPNHvAgx9weQ0SdH/4RU/qtzzIh1fKzsn01wCUL/qltB+2FqMcxeRAzECtyQkWVN9AGsZcqZ9uf23PR0WPqBNJFvHUga+mFYcQzOSjzc1XB00ClTr3dsSSty5i8g8RQzJIBoUwql9NUA4bTcbHt+hxnOAvQjii6d4A51FsLuj5FYI=
 cache:
   directories:
-    - "$HOME/.m2"
-
+  - "$HOME/.m2"
 script:
-  - mvn clean package -U
-  - docker build -t "$DOCKER_IMAGE" .
-
+- mvn clean package -U
+- docker build -t "$DOCKER_IMAGE" .
 after_success:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push "$DOCKER_IMAGE"
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+- docker push "$DOCKER_IMAGE"
