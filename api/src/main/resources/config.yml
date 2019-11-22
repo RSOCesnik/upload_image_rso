@@ -1,5 +1,5 @@
 kumuluzee:
-  name: image-comments-service
+  name: image-upload-service
   env:
     name: dev
   version: 1.0.0
