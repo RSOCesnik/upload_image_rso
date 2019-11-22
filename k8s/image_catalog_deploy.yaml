@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: image-deploy
+  name: image-update-deploy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: image
+      app: image-update
   template:
     metadata:
       labels:
-        app: image
+        app: image-update
     spec:
       containers:
       - image: bcesnik/rso-image-uploader:1.0.0-SNAPSHOT-6.1
-        name: image
+        name: image-update
         ports:
         - containerPort: 8081
           name: server
@@ -24,7 +24,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: image
+  name: image-update
 spec:
   type: NodePort
   ports:
@@ -32,4 +32,4 @@ spec:
     protocol: TCP
     targetPort: 8081
   selector:
-    app: images
+    app: image-update

@@ -4,6 +4,6 @@ kumuluzee:
     name: dev
   version: 1.0.0
   server:
-    base-url: http://localhost:8001
+    base-url: http://localhost:8081
     http:
-      port: 8001
+      port: 8081
