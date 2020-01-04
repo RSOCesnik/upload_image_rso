@@ -3,59 +3,73 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-<parent>
-    <artifactId>image-uploader</artifactId>
-    <groupId>si.fri.project</groupId>
-    <version>1.0.0-SNAPSHOT</version>
-</parent>
-<modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>image-uploader</artifactId>
+        <groupId>si.fri.project</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
 
-<artifactId>image-uploader-api</artifactId>
+    <artifactId>image-uploader-api</artifactId>
 
-<dependencies>
+    <dependencies>
 
-    <dependency>
-        <groupId>com.kumuluz.ee</groupId>
-        <artifactId>kumuluzee-core</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>com.kumuluz.ee</groupId>
-        <artifactId>kumuluzee-servlet-jetty</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>com.kumuluz.ee</groupId>
-        <artifactId>kumuluzee-json-b-yasson</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>com.kumuluz.ee</groupId>
-        <artifactId>kumuluzee-json-p-jsonp</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>com.kumuluz.ee</groupId>
-        <artifactId>kumuluzee-cdi-weld</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>com.kumuluz.ee</groupId>
-        <artifactId>kumuluzee-jax-rs-jersey</artifactId>
-    </dependency>
-</dependencies>
-
-<build>
-    <plugins>
-        <plugin>
+        <dependency>
             <groupId>com.kumuluz.ee</groupId>
-            <artifactId>kumuluzee-maven-plugin</artifactId>
-            <version>${kumuluzee.version}</version>
-            <executions>
-                <execution>
-                    <id>package</id>
-                    <goals>
-                        <goal>repackage</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
-    </plugins>
-</build>
+            <artifactId>kumuluzee-core</artifactId>
+        </dependency>
+<!--        <dependency>-->
+<!--            <artifactId>kumuluzee-config-etcd</artifactId>-->
+<!--            <groupId>com.kumuluz.ee.config</groupId>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>com.kumuluz.ee.discovery</groupId>
+            <artifactId>kumuluzee-discovery-etcd</artifactId>
+            <version>${kumuluzee-discovery.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.kumuluz.ee</groupId>
+            <artifactId>kumuluzee-servlet-jetty</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kumuluz.ee</groupId>
+            <artifactId>kumuluzee-json-b-yasson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kumuluz.ee</groupId>
+            <artifactId>kumuluzee-json-p-jsonp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kumuluz.ee</groupId>
+            <artifactId>kumuluzee-jax-rs-jersey</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>si.fri.project</groupId>
+            <artifactId>image-uploader-services</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>si.fri.project</groupId>
+            <artifactId>image-uploader-models</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.kumuluz.ee</groupId>
+                <artifactId>kumuluzee-maven-plugin</artifactId>
+                <version>${kumuluzee.version}</version>
+                <executions>
+                    <execution>
+                        <id>package</id>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

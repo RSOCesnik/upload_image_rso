@@ -10,12 +10,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>image-uploader-models</artifactId>
-
+    <properties>
+        <postgresql.version>42.2.5</postgresql.version>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-jpa-eclipselink</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
+        </dependency>
     </dependencies>
 </project>

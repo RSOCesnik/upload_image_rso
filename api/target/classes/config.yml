@@ -7,3 +7,15 @@ kumuluzee:
     base-url: http://localhost:8081
     http:
       port: 8081
+  datasources:
+    - jndi-name: jdbc/ImageDS
+      connection-url: jdbc:postgresql://35.205.56.107:5432/images_db
+      username: postgres
+      password: adminadmin
+      max-pool-size: 20
+  config:
+    etcd:
+      hosts: http://localhost:2379
+  discovery:
+    etcd:
+      hosts: http://localhost:2379
