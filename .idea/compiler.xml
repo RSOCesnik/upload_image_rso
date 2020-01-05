@@ -7,8 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="photo-api" />
-        <module name="photo-services" />
         <module name="photo-models" />
+        <module name="photo-services" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

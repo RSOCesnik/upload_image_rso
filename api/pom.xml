@@ -18,10 +18,6 @@
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-core</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <artifactId>kumuluzee-config-etcd</artifactId>-->
-<!--            <groupId>com.kumuluz.ee.config</groupId>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>com.kumuluz.ee.discovery</groupId>
             <artifactId>kumuluzee-discovery-etcd</artifactId>
@@ -40,12 +36,28 @@
             <artifactId>kumuluzee-json-p-jsonp</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.kumuluz.ee.logs</groupId>
+            <artifactId>kumuluzee-logs-log4j2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kumuluz.ee.metrics</groupId>
+            <artifactId>kumuluzee-metrics-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kumuluz.ee.health</groupId>
+            <artifactId>kumuluzee-health</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-jax-rs-jersey</artifactId>
         </dependency>
         <dependency>
             <groupId>si.fri.project</groupId>
             <artifactId>image-uploader-services</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kumuluz.ee</groupId>
+            <artifactId>kumuluzee-cdi-weld</artifactId>
         </dependency>
         <dependency>
             <groupId>si.fri.project</groupId>
