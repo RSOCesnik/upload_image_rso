@@ -2,7 +2,6 @@ package si.fri.project.image_upload.api.v1.resource;
 
 
 import com.kumuluz.ee.discovery.annotations.DiscoverService;
-import com.kumuluz.ee.logs.cdi.Log;
 import si.fri.project.image_upload.models.ImageEntity;
 import si.fri.project.image_upload.services.ImageBean;
 
@@ -17,7 +16,6 @@ import javax.ws.rs.core.UriInfo;
 import java.util.List;
 import java.util.Optional;
 
-@Log
 @ApplicationScoped
 @Path("/uploads")
 public class ImageUploadResource {
@@ -54,6 +52,7 @@ public class ImageUploadResource {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
         else {
+
             photo = imageBean.createPhoto(photo);
         }
 
@@ -63,6 +62,7 @@ public class ImageUploadResource {
             return Response.status(Response.Status.CONFLICT).entity(photo).build();
         }
     }
+
     @GET
     public Response getPhotos() {
         return Response.ok(imageCatalogServiceUrl.get() + "/v1/catalog/").build();

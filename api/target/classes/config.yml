@@ -50,8 +50,6 @@ kumuluzee:
         jndi-name: jdbc/ImageDS
       etcd-health-check:
         connection-url: http://localhost:2379/health
-      http-health-check:
-        - connection-url: http://localhost:8081/v1/uploads
   metrics:
     servlet:
       enabled: true
